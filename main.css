@@ -1,0 +1,64 @@
+html {
+    background-color: white;
+    width: 95vw;
+}
+
+body {
+    margin: auto;
+    width: 70%;
+}
+
+.commit {
+    color: #222222;
+    background-color: lightgrey;
+    overflow: auto;
+    border-radius: 4px;
+}
+
+img.avatar {
+    width: 25px;
+    height: 25px;
+    float: left;
+}
+
+.message {
+    border-radius: 4px;
+    background-color: white;
+    margin: 5px ;
+    font-family: monospace;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.inlineForm {
+    display: inline-block;
+}
+
+.column {
+    float: left;
+}
+
+.left {
+    width: 15%;
+}
+
+.right {
+    width: 85%;
+}
+
+#searchForm {
+    width: 50%;
+    display: inline;
+}
+
+#backButton {
+    position: absolute;
+    left: 0;
+}
+
+nav {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
