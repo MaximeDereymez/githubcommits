@@ -23,6 +23,7 @@ $commit = json_decode($json, true);
 $not_found = !empty($commit["message"]) && $commit["message"] === "Not Found";
 $exceeded_rate = !empty($decoded_json["message"]) && substr($decoded_json["message"], 0, 23) === "API rate limit exceeded";
 ?>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Details</title>
