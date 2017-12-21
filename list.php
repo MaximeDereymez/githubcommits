@@ -32,15 +32,15 @@ $exceeded_rate = !empty($decoded_json["message"]) && substr($decoded_json["messa
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main</title>
+    <title>Commit list</title>
     <link rel='stylesheet' type='text/css' href='main.css'>
 </head>
 <body>
 <header>
     <nav>
-        <form id="searchForm" action="main.php" method="get">
-            <p class="inlineForm">User: <input type="text" name="user" value="<?php echo $user?>"/></p>
-            <p class="inlineForm">Repo: <input type="text" name="repo" value="<?php echo $repo?>"/></p>
+        <form id="searchForm" action="list.php" method="get">
+            <p class="inlineForm">User: <input type="text" name="user" value="<?= $user?>"/></p>
+            <p class="inlineForm">Repo: <input type="text" name="repo" value="<?= $repo?>"/></p>
             <p class="inlineForm"><input type="submit" value="OK"></p>
         </form>
     </nav>
@@ -53,17 +53,17 @@ $exceeded_rate = !empty($decoded_json["message"]) && substr($decoded_json["messa
     <div class="commit">
         <div class="column left">
             <?php if (!empty($commit["committer"])) { ?>
-                <a href="https://github.com/<?php echo $commit["committer"]["login"] ?>">
-                    <img class="avatar" src="<?php echo $commit["committer"]["avatar_url"] ?>">
+                <a href="https://github.com/<?= $commit["committer"]["login"] ?>">
+                    <img class="avatar" src="<?= $commit["committer"]["avatar_url"] ?>">
                 </a>
-                <span><?php echo $commit["committer"]["login"] ?></span>
+                <span><?= $commit["committer"]["login"] ?></span>
             <?php } else { ?>
-                <span><?php echo $commit["commit"]["committer"]["name"] ?></span>
+                <span><?= $commit["commit"]["committer"]["name"] ?></span>
             <?php } ?>
         </div>
         <div class="column right">
-        <a class="message" href="<?php echo commit_link($user, $repo, $commit) ?>" title="Details">
-            <?php echo short_message($commit) ?>
+        <a class="message" href="<?= commit_link($user, $repo, $commit) ?>" title="Details">
+            <?= short_message($commit) ?>
         </a>
         </div>
     </div>

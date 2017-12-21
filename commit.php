@@ -32,10 +32,10 @@ $exceeded_rate = !empty($decoded_json["message"]) && substr($decoded_json["messa
 <body>
 <header>
     <nav>
-        <a id="backButton" href="main.php?user=<?php echo $user ?>&repo=<?php echo $repo ?>">< Back</a>
+        <a id="backButton" href="main.php?user=<?= $user ?>&repo=<?= $repo ?>">< Back</a>
         <form id="searchForm" action="main.php" method="get">
-            <p class="inlineForm">User: <input type="text" name="user" value="<?php echo $user ?>"/></p>
-            <p class="inlineForm">Repo: <input type="text" name="repo" value="<?php echo $repo ?>"/></p>
+            <p class="inlineForm">User: <input type="text" name="user" value="<?= $user ?>"/></p>
+            <p class="inlineForm">Repo: <input type="text" name="repo" value="<?= $repo ?>"/></p>
             <p class="inlineForm"><input type="submit" value="OK"></p>
         </form>
     </nav>
@@ -48,29 +48,29 @@ $exceeded_rate = !empty($decoded_json["message"]) && substr($decoded_json["messa
     <div class="commit">
         <div>
             <?php if (!empty($commit["committer"])) { ?>
-                <a href="https://github.com/<?php echo $commit["committer"]["login"] ?>">
-                    <img class="avatar" src="<?php echo $commit["committer"]["avatar_url"] ?>">
+                <a href="https://github.com/<?= $commit["committer"]["login"] ?>">
+                    <img class="avatar" src="<?= $commit["committer"]["avatar_url"] ?>">
                 </a>
-                <span><?php echo $commit["committer"]["login"] ?></span>
+                <span><?= $commit["committer"]["login"] ?></span>
             <?php } else { ?>
-                <span><?php echo $commit["commit"]["committer"]["name"] ?></span>
+                <span><?= $commit["commit"]["committer"]["name"] ?></span>
             <?php } ?>
-            <span style="float: right"><?php echo $commit["sha"] ?></span>
+            <span style="float: right"><?= $commit["sha"] ?></span>
         </div>
-        <p class="message"><?php echo $commit["commit"]["message"] ?></p>
+        <p class="message"><?= $commit["commit"]["message"] ?></p>
         <?php if (!empty($commit["stats"])) { ?>
             <ul>
                 Modifications
-                <li>Added lines: <?php echo $commit["stats"]["additions"]; ?></li>
-                <li>Deleted lines: <?php echo $commit["stats"]["deletions"]; ?></li>
-                <li>Total: <?php echo $commit["stats"]["total"]; ?></li>
+                <li>Added lines: <?= $commit["stats"]["additions"]; ?></li>
+                <li>Deleted lines: <?= $commit["stats"]["deletions"]; ?></li>
+                <li>Total: <?= $commit["stats"]["total"]; ?></li>
             </ul>
         <?php } ?>
         <?php if (!empty($commit["files"])) { ?>
             <ul>
                 Modified files
                 <?php foreach ($commit["files"] as $file) { ?>
-                    <li><?php echo $file["filename"]; ?></li>
+                    <li><?= $file["filename"]; ?></li>
                 <?php } ?>
             </ul>
         <?php } ?>
